@@ -3,8 +3,12 @@ import { engine } from "express-handlebars";
 import morgan from "morgan";
 
 const app = express();
+
+app.use(express.static("src/public"));
+
 app.use(morgan("combined"));
 
+//-------------Template Engine-=---------------
 app.engine(".hbs", engine({ extname: ".hbs" }));
 app.set("view engine", ".hbs");
 app.set("views", "src/resources/views");
